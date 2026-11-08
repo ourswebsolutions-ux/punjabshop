@@ -137,7 +137,7 @@ await prisma.coupon.createMany({
 const reviewSeed = [
   ['Ahmed Raza', 5, 'Excellent quality', 'Very comfortable and exactly as shown in the pictures. Delivered in 2 days to Lahore.'],
   ['Fatima Noor', 4, 'Good value', 'Nice finishing and good packaging. Size runs slightly small so order one size up.'],
-  ['Kamran Akhtar', 5, 'Highly recommended', 'Second time ordering from PunjabShop and again very satisfied. Cash on delivery was smooth.'],
+  ['Kamran Akhtar', 5, 'Highly recommended', 'Second time ordering from PunjabShoes and again very satisfied. Cash on delivery was smooth.'],
 ];
 // A few sample reviews on the first products (the shop's own stock).
 for (const pid of productIds.slice(0, 8)) {

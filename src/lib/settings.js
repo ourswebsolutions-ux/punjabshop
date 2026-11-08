@@ -4,21 +4,29 @@ import { prisma } from './db';
 
 export const DEFAULT_SETTINGS = {
   store: {
-    name: 'PunjabShop',
+    name: 'PunjabShoes',
     tagline: 'Walk in Style',
-    about: 'Premium footwear for everyone. Shop smart, walk stylish with PunjabShop.',
+    about: 'Premium footwear for everyone. Shop smart, walk stylish with PunjabShoes.',
     phone: '+92 300 1234567',
     whatsapp: '+92 300 1234567',
-    email: 'info@punjabshop.pk',
+    email: 'info@punjabshoes.pk',
     address: 'Lahore, Pakistan',
-    logo: '',
+    hours: 'Monday – Saturday, 10am – 9pm',
+    map_link: '',
+    logo: '', // optional uploaded logo; the built-in logo is used when empty
+    footer_logo: '', // optional logo for the dark footer
+    favicon: '', // optional browser-tab icon
+    footer_note: 'Designed with ♥ for Fashion Lovers',
+    payment_note: 'Cash on Delivery available all over Pakistan.',
+    product_badges: ['Cash on Delivery available', 'Easy 7-day returns'],
+    returns_note: 'Not the right size? Exchanges and returns are accepted within 7 days of delivery for unworn items in their original packaging.',
     social: {
       facebook: 'https://facebook.com/',
       instagram: 'https://instagram.com/',
       youtube: 'https://youtube.com/',
       tiktok: 'https://tiktok.com/',
     },
-    seo_title: 'PunjabShop – Premium Footwear Store in Pakistan',
+    seo_title: 'PunjabShoes – Premium Footwear Store in Pakistan',
     seo_description:
       'Shop trendy sneakers, formal shoes, heels, sandals and chappals online in Pakistan. Cash on Delivery, free delivery and easy returns.',
   },
@@ -39,7 +47,7 @@ export const DEFAULT_SETTINGS = {
     bank_transfer: {
       enabled: true,
       bank_name: 'Meezan Bank',
-      account_title: 'PunjabShop',
+      account_title: 'PunjabShoes',
       account_number: '0000-0000000000',
       iban: 'PK00MEZN0000000000000000',
       instructions: 'Transfer the total amount and submit your transaction ID on the order page. Your order will be confirmed after verification.',
@@ -80,7 +88,7 @@ export const DEFAULT_SETTINGS = {
     featured_ids: [],
     new_arrivals_title: 'New Arrivals',
     new_arrivals_subtitle: 'Fresh Styles Just In',
-    features_title: 'Why Choose PunjabShop?',
+    features_title: 'Why Choose PunjabShoes?',
     features: [
       { icon: 'truck', title: 'Free Delivery', text: 'All Over Pakistan' },
       { icon: 'returns', title: 'Easy Returns', text: 'Within 7 Days' },

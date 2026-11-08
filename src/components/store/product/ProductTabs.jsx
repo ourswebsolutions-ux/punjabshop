@@ -140,8 +140,8 @@ export default function ProductTabs({ product, reviews }) {
         <div className="prose">
           <p>{product.shippingText}</p>
           <p>
-            Not the right size? Exchanges and returns are accepted within 7 days of delivery for unworn items in original packaging. See our{' '}
-            <Link href="/return-policy" className="link">Return &amp; Refund Policy</Link>.
+            {product.returnsNote && <>{product.returnsNote} </>}
+            See our <Link href="/return-policy" className="link">{product.returnsTitle}</Link>.
           </p>
         </div>
       )}

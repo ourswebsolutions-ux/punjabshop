@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
 import SalesChart from '@/components/admin/SalesChart';
+import WhatsAppCard from '@/components/admin/WhatsAppCard';
+import { adminCan } from '@/lib/auth';
 import { StatusBadge } from '@/components/store/order/OrderDetails';
 import { pageAdmin } from '@/lib/admin';
 import { query, queryOne } from '@/lib/db';
@@ -87,6 +89,8 @@ export default async function Dashboard({ searchParams }) {
           );
         })}
       </div>
+
+      <WhatsAppCard canManage={adminCan(admin, 'settings')} />
 
       <div className="admin-grid-2">
         <section className="panel">

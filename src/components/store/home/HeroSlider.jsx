@@ -63,10 +63,10 @@ export default function HeroSlider({ slides }) {
               <div className="hero__content">
                 {s.badge && (
                   <span className="hero__badge">
-                    {s.badge.match(/^(.*?)(Shop)$/) ? (
+                    {s.badge.match(/^(.+?)(Shoes|Shop)$/) ? (
                       <>
-                        {s.badge.replace(/Shop$/, '')}
-                        <em>Shop</em>
+                        {s.badge.match(/^(.+?)(Shoes|Shop)$/)[1]}
+                        <em>{s.badge.match(/^(.+?)(Shoes|Shop)$/)[2]}</em>
                       </>
                     ) : (
                       s.badge

@@ -13,7 +13,7 @@ export async function generateMetadata() {
     description: store.seo_description,
     applicationName: store.name,
     openGraph: { type: 'website', siteName: store.name, locale: 'en_PK' },
-    icons: { icon: '/icon.svg' },
+    icons: { icon: store.favicon || '/icon.svg' },
   };
 }
 

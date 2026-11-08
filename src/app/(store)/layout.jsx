@@ -8,6 +8,7 @@ import ShopProvider from '@/components/store/ShopProvider';
 import { getCustomer } from '@/lib/auth';
 import { getMenuCategories } from '@/lib/catalog';
 import { whatsappLink } from '@/lib/pakistan';
+import { mergePages } from '@/lib/pages-content';
 import { getSettings } from '@/lib/settings';
 
 export default async function StoreLayout({ children }) {
@@ -20,7 +21,7 @@ export default async function StoreLayout({ children }) {
     slug: c.slug,
     children: c.children.map((s) => ({ id: s.id, name: s.name, slug: s.slug })),
   }));
-  const storeLite = { name: store.name, tagline: store.tagline, phone: store.phone, email: store.email };
+  const storeLite = { name: store.name, tagline: store.tagline, phone: store.phone, email: store.email, logo: store.logo };
 
   return (
     <ShopProvider customer={customer ? { id: customer.id, name: customer.name, email: customer.email } : null}>
@@ -30,7 +31,7 @@ export default async function StoreLayout({ children }) {
       </Suspense>
       <main id="main">{children}</main>
       {homepage.sections.newsletter && <Newsletter title={homepage.newsletter_title} text={homepage.newsletter_text} social={store.social} />}
-      <Footer store={store} menu={menuLite} />
+      <Footer store={store} menu={menuLite} pages={Object.fromEntries(Object.entries(mergePages(settings.pages)).map(([k, v]) => [k, v.title]))} />
       {store.whatsapp && (
         <a className="wa-float" href={whatsappLink(store.whatsapp, `Assalam o Alaikum ${store.name}, I need help with`)} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
           <Icon name="whatsapp" size={28} />

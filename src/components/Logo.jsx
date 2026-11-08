@@ -29,8 +29,16 @@ export function LogoMark({ size = 48 }) {
   );
 }
 
-export default function Logo({ variant = 'dark', tagline = 'Walk in Style', href = '/', name = 'PunjabShop' }) {
-  const split = name.match(/^(.*?)(Shop)$/i);
+export default function Logo({ variant = 'dark', tagline = 'Walk in Style', href = '/', name = 'PunjabShoes', image }) {
+  // An uploaded logo (Store Settings) replaces the built-in mark and name.
+  if (image) {
+    return (
+      <Link href={href} className={`logo logo--${variant} logo--image`} aria-label={`${name} home`}>
+        <img src={image} alt={name} />
+      </Link>
+    );
+  }
+  const split = name.match(/^(.*?)(Shoes|Shop)$/i);
   return (
     <Link href={href} className={`logo logo--${variant}`} aria-label={`${name} home`}>
       <LogoMark />

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PunjabShop design system
+   PunjabShoes design system
    ========================================================================== */
 :root {
   --green-950: #0c2f10;
@@ -1229,3 +1229,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Uploaded logo (Store Settings) */
+.logo--image img { display: block; height: 52px; width: auto; max-width: 220px; object-fit: contain; }
+.footer .logo--image img { height: 60px; }
+.drawer__head .logo--image img, .admin-side__brand .logo--image img { height: 40px; max-width: 180px; }
+@media (max-width: 680px) { .logo--image img { height: 42px; max-width: 160px; } }

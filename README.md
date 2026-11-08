@@ -1,4 +1,4 @@
-# PunjabShop
+# Punjabshoes
 
 Premium footwear e-commerce store for Pakistan, built with **Next.js 16 (App Router, JSX)**, **Prisma 7** and **MySQL / MariaDB**.
 
@@ -41,6 +41,16 @@ Deleting things is always confirmed with the exact number of products affected:
 - **Categories → Open** – shows the category's products and offers **Delete All Products in This Category** (the category itself stays). If some products are also in other categories, you choose whether to delete them too or keep them there.
 - **Delete category** – choose to move its products to another category, keep them in the shop, or delete the ones that are only in this category. Sub-categories move up a level.
 - Orders, order history and customers are never deleted with products: order lines keep the product name, size, colour and price.
+
+## WhatsApp order alerts
+
+The admin **Dashboard** has a *WhatsApp order alerts* card. Click **Connect WhatsApp**, then on the phone open WhatsApp → **Linked devices** → **Link a device** and scan the QR code. After that every new order is sent on WhatsApp (customer details, items, total, payment method and a link to the order). You can choose which numbers receive the alerts and optionally send customers an order confirmation.
+
+- Uses [Baileys](https://github.com/WhiskeySockets/Baileys) (WhatsApp Web protocol). It is unofficial: WhatsApp may restrict numbers that send many automated messages, so use a separate shop number and keep it to order alerts.
+- The login is stored in `WHATSAPP_SESSION_DIR` (default `~/.punjabshoes/whatsapp-session`, outside the project). It contains credentials: never commit or share it. Deleting it unlinks WhatsApp.
+- The connection resumes automatically when the server restarts (`src/instrumentation.js`).
+- Run the app as **one** process (PM2 fork mode, not cluster mode), otherwise several connections fight over the same WhatsApp login.
+- Alerts are sent after the order is saved; if WhatsApp is disconnected the order still goes through and the dashboard shows the failed alert.
 
 ## Payments
 

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Icon from '@/components/Icon';
 import { ALL_CITIES } from '@/lib/pakistan';
-import { FormMessage, Toggle, useMutation } from './ui';
+import { FormMessage, SingleImage, Toggle, useMutation } from './ui';
 
 function useSettingsForm(key, initial) {
   const [v, setV] = useState(initial);
@@ -51,22 +51,67 @@ export function StoreSettingsForm({ store, topbar }) {
   return (
     <div style={{ display: 'grid', gap: 20 }}>
       <form className="panel" onSubmit={s.save}>
-        <div className="panel__head"><h3>Shop details</h3></div>
+        <div className="panel__head"><h3>Shop name &amp; logo</h3></div>
         <div className="panel__body form-grid">
           <Field label="Shop name">{inp('name', { required: true })}</Field>
-          <Field label="Tagline">{inp('tagline')}</Field>
-          <Field label="About your shop (shown at the bottom of every page)" span><textarea className="textarea" style={{ minHeight: 70 }} value={s.v.about} onChange={(e) => s.setPath('about', e.target.value)} /></Field>
-          <Field label="Phone">{inp('phone')}</Field>
+          <Field label="Tagline (small line under the name)">{inp('tagline')}</Field>
+          <div className="field">
+            <span className="label">Your logo (optional)</span>
+            <SingleImage value={s.v.logo} onChange={(v) => s.setPath('logo', v)} folder="settings" />
+            <span className="hint">Leave empty to use the built-in green logo with your shop name. A wide picture on a white or clear background works best.</span>
+          </div>
+          <div className="field">
+            <span className="label">Logo for the dark footer (optional)</span>
+            <SingleImage value={s.v.footer_logo} onChange={(v) => s.setPath('footer_logo', v)} folder="settings" />
+            <span className="hint">A light-coloured version of your logo. If empty, the footer uses the built-in logo.</span>
+          </div>
+          <div className="field">
+            <span className="label">Browser tab icon (optional)</span>
+            <SingleImage value={s.v.favicon} onChange={(v) => s.setPath('favicon', v)} folder="settings" />
+            <span className="hint">A small square picture shown on the browser tab.</span>
+          </div>
+          <Field label="About your shop (shown at the bottom of every page)"><textarea className="textarea" style={{ minHeight: 110 }} value={s.v.about} onChange={(e) => s.setPath('about', e.target.value)} /></Field>
+        </div>
+
+        <div className="panel__head" style={{ borderTop: '1px solid var(--line-2)' }}><h3>Contact details</h3></div>
+        <div className="panel__body form-grid">
+          <Field label="Phone number" hint="Shown in the footer, menu and contact page">{inp('phone')}</Field>
           <Field label="WhatsApp number" hint="Customers tap the green WhatsApp button to message you here">{inp('whatsapp')}</Field>
           <Field label="Email">{inp('email', { type: 'email' })}</Field>
-          <Field label="Address">{inp('address')}</Field>
-          <Field label="Facebook URL">{inp('social.facebook')}</Field>
-          <Field label="Instagram URL">{inp('social.instagram')}</Field>
-          <Field label="YouTube URL">{inp('social.youtube')}</Field>
-          <Field label="TikTok URL">{inp('social.tiktok')}</Field>
+          <Field label="Opening hours" hint="e.g. Monday – Saturday, 10am – 9pm">{inp('hours')}</Field>
+          <Field label="Shop address" span>{inp('address')}</Field>
+          <Field label="Google Maps link (optional)" hint="Open your shop on Google Maps, tap Share, copy the link and paste it here" span>{inp('map_link', { placeholder: 'https://maps.app.goo.gl/…' })}</Field>
+        </div>
+
+        <div className="panel__head" style={{ borderTop: '1px solid var(--line-2)' }}><h3>Social media</h3></div>
+        <div className="panel__body form-grid">
+          <Field label="Facebook page link">{inp('social.facebook')}</Field>
+          <Field label="Instagram link">{inp('social.instagram')}</Field>
+          <Field label="YouTube link">{inp('social.youtube')}</Field>
+          <Field label="TikTok link">{inp('social.tiktok')}</Field>
+          <p className="help span-2">Leave a box empty to hide that icon.</p>
+        </div>
+
+        <div className="panel__head" style={{ borderTop: '1px solid var(--line-2)' }}><h3>Texts around the website</h3></div>
+        <div className="panel__body form-grid">
+          <Field label="Footer – bottom right text">{inp('footer_note')}</Field>
+          <Field label="Footer – text under payment methods">{inp('payment_note')}</Field>
+          <Field label="Product page – badge 1" hint="Shown under the Add to Cart button, next to the delivery time">
+            <input className="input" value={s.v.product_badges?.[0] ?? ''} onChange={(e) => s.setPath('product_badges', [e.target.value, s.v.product_badges?.[1] ?? ''])} />
+          </Field>
+          <Field label="Product page – badge 2">
+            <input className="input" value={s.v.product_badges?.[1] ?? ''} onChange={(e) => s.setPath('product_badges', [s.v.product_badges?.[0] ?? '', e.target.value])} />
+          </Field>
+          <Field label="Product page – returns text (in the “Delivery & Returns” tab)" span>
+            <textarea className="textarea" style={{ minHeight: 70 }} value={s.v.returns_note} onChange={(e) => s.setPath('returns_note', e.target.value)} />
+          </Field>
+        </div>
+
+        <div className="panel__head" style={{ borderTop: '1px solid var(--line-2)' }}><h3>Google search</h3></div>
+        <div className="panel__body form-grid">
           <Field label="Website title on Google" span>{inp('seo_title')}</Field>
           <Field label="Website description on Google" span><textarea className="textarea" style={{ minHeight: 70 }} value={s.v.seo_description} onChange={(e) => s.setPath('seo_description', e.target.value)} /></Field>
-          <div className="span-2"><SaveBar state={s.state} /></div>
+          <div className="span-2"><SaveBar state={s.state} label="Save shop details" /></div>
         </div>
       </form>
       <form className="panel" onSubmit={t.save}>

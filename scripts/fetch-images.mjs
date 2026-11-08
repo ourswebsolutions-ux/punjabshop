@@ -73,7 +73,7 @@ const lines = ['# Image credits', '', 'Product and banner photos in this folder.
 for (const j of jobs) {
   const rel = path.relative(ROOT, j.out);
   const src = sourceUrl(j.ref, 0);
-  lines.push(src ? `| ${rel} | ${src.page} | ${src.license} |` : `| ${rel} | Shop's own photo (${j.ref.slice(4)}) | Owned by PunjabShop |`);
+  lines.push(src ? `| ${rel} | ${src.page} | ${src.license} |` : `| ${rel} | Shop's own photo (${j.ref.slice(4)}) | Owned by PunjabShoes |`);
 }
 await fs.writeFile(path.join(ROOT, 'CREDITS.md'), lines.join('\n') + '\n');
 console.log(`${jobs.length - failed}/${jobs.length} images ready in public/imgs/`);

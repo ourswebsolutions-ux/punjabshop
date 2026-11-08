@@ -37,6 +37,7 @@ export default async function PanelLayout({ children }) {
       label: 'Website',
       items: [
         { href: '/admin/homepage', label: 'Homepage', icon: 'home', area: 'content' },
+        { href: '/admin/pages', label: 'Pages (About, FAQ…)', icon: 'edit', area: 'content' },
         { href: '/admin/settings', label: 'Store Settings', icon: 'settings', area: 'settings' },
       ],
     },

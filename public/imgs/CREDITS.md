@@ -4,15 +4,15 @@ Product and banner photos in this folder. Pexels and Unsplash photos are free fo
 
 | File | Source | License |
 | --- | --- | --- |
-| men-sneakers/grey-mesh-lace-up-sneakers-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.03.51 PM.jpeg) | Owned by PunjabShop |
-| men-casual-shoes/grey-elastic-strap-slip-ons-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.04.11 PM.jpeg) | Owned by PunjabShop |
-| men-casual-shoes/brown-memory-foam-walking-shoes-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.04.30 PM.jpeg) | Owned by PunjabShop |
-| men-casual-shoes/tan-suede-slip-on-loafers-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.04.54 PM.jpeg) | Owned by PunjabShop |
-| men-formal-shoes/brown-leather-comfort-slip-ons-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.05.17 PM.jpeg) | Owned by PunjabShop |
-| men-sandals-chappals/brown-velcro-strap-sandals-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.08.35 PM.jpeg) | Owned by PunjabShop |
-| men-sandals-chappals/sport-cross-strap-sandals-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.09.09 PM.jpeg) | Owned by PunjabShop |
-| men-sandals-chappals/grey-triple-strap-sandals-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.09.19 PM.jpeg) | Owned by PunjabShop |
-| men-sneakers/navy-knit-slip-in-sneakers-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.11.17 PM.jpeg) | Owned by PunjabShop |
+| men-sneakers/grey-mesh-lace-up-sneakers-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.03.51 PM.jpeg) | Owned by PunjabShoes |
+| men-casual-shoes/grey-elastic-strap-slip-ons-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.04.11 PM.jpeg) | Owned by PunjabShoes |
+| men-casual-shoes/brown-memory-foam-walking-shoes-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.04.30 PM.jpeg) | Owned by PunjabShoes |
+| men-casual-shoes/tan-suede-slip-on-loafers-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.04.54 PM.jpeg) | Owned by PunjabShoes |
+| men-formal-shoes/brown-leather-comfort-slip-ons-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.05.17 PM.jpeg) | Owned by PunjabShoes |
+| men-sandals-chappals/brown-velcro-strap-sandals-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.08.35 PM.jpeg) | Owned by PunjabShoes |
+| men-sandals-chappals/sport-cross-strap-sandals-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.09.09 PM.jpeg) | Owned by PunjabShoes |
+| men-sandals-chappals/grey-triple-strap-sandals-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.09.19 PM.jpeg) | Owned by PunjabShoes |
+| men-sneakers/navy-knit-slip-in-sneakers-1.jpg | Shop's own photo (WhatsApp Image 2026-10-31 at 9.11.17 PM.jpeg) | Owned by PunjabShoes |
 | men-sneakers/white-leather-trainers-1.jpg | https://www.pexels.com/photo/11324518/ | Pexels License |
 | men-sneakers/white-leather-trainers-2.jpg | https://www.pexels.com/photo/11324516/ | Pexels License |
 | men-sneakers/white-leather-trainers-3.jpg | https://www.pexels.com/photo/11324546/ | Pexels License |

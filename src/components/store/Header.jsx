@@ -66,7 +66,7 @@ export default function Header({ menu, store }) {
           <button className="icon-btn menu-toggle" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}>
             <Icon name="menu" size={20} />
           </button>
-          <Logo name={store.name} tagline={store.tagline} />
+          <Logo name={store.name} tagline={store.tagline} image={store.logo} />
           <nav className="nav" aria-label="Main">
             {links.map((l) => (
               <div className="nav__item" key={l.href}>
@@ -107,7 +107,7 @@ export default function Header({ menu, store }) {
       <div className={`drawer-backdrop ${open ? 'is-open' : ''}`} onClick={() => setOpen(false)} />
       <aside className={`drawer ${open ? 'is-open' : ''}`} aria-hidden={!open} aria-label="Menu">
         <div className="drawer__head">
-          <Logo name={store.name} tagline={null} />
+          <Logo name={store.name} tagline={null} image={store.logo} />
           <button className="icon-btn" onClick={() => setOpen(false)} aria-label="Close menu">
             <Icon name="x" size={20} />
           </button>

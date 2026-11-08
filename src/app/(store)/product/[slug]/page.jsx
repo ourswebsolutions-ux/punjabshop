@@ -10,6 +10,7 @@ import Stars from '@/components/store/Stars';
 import { getApprovedReviews, getProductBySlug, getRelatedProducts, sortSizes } from '@/lib/catalog';
 import { query } from '@/lib/db';
 import { effectivePrice, formatCount, formatPrice } from '@/lib/format';
+import { mergePages } from '@/lib/pages-content';
 import { getSettings } from '@/lib/settings';
 
 export async function generateMetadata({ params }) {
@@ -42,7 +43,7 @@ export default async function ProductPage({ params }) {
   const ship = settings.shipping;
   const shippingText = `Delivery all over Pakistan in ${ship.estimated_days}. Flat delivery charge of ${formatPrice(ship.flat_fee)}${
     Number(ship.free_threshold) > 0 ? `, free on orders above ${formatPrice(ship.free_threshold)}` : ''
-  }. Cash on Delivery available.`;
+  }.${settings.payments.cod.enabled ? ' Cash on Delivery available.' : ''}`;
 
   const site = process.env.NEXT_PUBLIC_SITE_URL || '';
   const jsonLd = {
@@ -108,8 +109,9 @@ export default async function ProductPage({ params }) {
           />
           <div className="assurances">
             <div className="assurance"><Icon name="truck" size={22} /> Delivery in {ship.estimated_days}</div>
-            <div className="assurance"><Icon name="cash" size={22} /> Cash on Delivery available</div>
-            <div className="assurance"><Icon name="returns" size={22} /> Easy 7-day returns</div>
+            {(settings.store.product_badges || []).filter(Boolean).slice(0, 2).map((badge, i) => (
+              <div className="assurance" key={i}><Icon name={i === 0 ? 'cash' : 'returns'} size={22} /> {badge}</div>
+            ))}
           </div>
           {product.categories.length > 0 && (
             <p className="buybox__cats">
@@ -136,6 +138,8 @@ export default async function ProductPage({ params }) {
           sizes,
           colors,
           shippingText,
+          returnsNote: settings.store.returns_note,
+          returnsTitle: mergePages(settings.pages).returns.title,
         }}
         reviews={reviews.map((r) => ({ ...r, created_at: r.created_at.toISOString() }))}
       />

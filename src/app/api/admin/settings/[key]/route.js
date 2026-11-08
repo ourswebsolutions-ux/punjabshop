@@ -17,7 +17,15 @@ const SCHEMAS = {
     whatsapp: str(30),
     email: z.string().trim().email().max(190),
     address: str(200),
+    hours: str(120),
+    map_link: url,
     logo: str(255),
+    footer_logo: str(255),
+    favicon: str(255),
+    footer_note: str(120),
+    payment_note: str(160),
+    product_badges: z.array(z.string().trim().max(60)).max(3).default([]).transform((a) => a.filter(Boolean)),
+    returns_note: str(500),
     social: z.object({ facebook: url, instagram: url, youtube: url, tiktok: url }),
     seo_title: str(190),
     seo_description: str(300),
@@ -49,6 +57,18 @@ const SCHEMAS = {
   }),
 };
 
+const page = (extra = {}) => z.object({ title: z.string().trim().min(1, 'Page title is required').max(120), intro: str(400), ...extra });
+const textPage = page({ body: z.string().max(30000).default('') });
+SCHEMAS.pages = z.object({
+  about: page({ heading: str(160), image: str(255), body: z.string().max(30000).default('') }),
+  faq: page({ items: z.array(z.object({ q: z.string().trim().max(300), a: z.string().trim().max(3000) })).max(60) }),
+  contact: page(),
+  shipping: textPage,
+  returns: textPage,
+  privacy: textPage,
+  terms: textPage,
+});
+
 // Secret gateway fields: an empty value means "keep the stored secret".
 const SECRETS = { jazzcash: ['password', 'integrity_salt'], easypaisa: ['hash_key'] };
 
@@ -56,7 +76,7 @@ export const PUT = handler(async (req, { params }) => {
   const { key } = await params;
   const schema = SCHEMAS[key];
   if (!schema) throw new AppError('Unknown settings group', 404);
-  await requireAdmin(key === 'homepage' ? 'content' : 'settings');
+  await requireAdmin(key === 'homepage' || key === 'pages' ? 'content' : 'settings');
   const value = schema.parse(await readJson(req));
 
   if (key === 'payments') {

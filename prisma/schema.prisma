@@ -1,4 +1,4 @@
-// PunjabShop database schema (MySQL 8 / MariaDB 10.6+).
+// PunjabShoes database schema (MySQL 8 / MariaDB 10.6+).
 // Field names stay snake_case so they match the column names used across the app.
 
 generator client {

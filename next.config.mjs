@@ -5,7 +5,7 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     localPatterns: [{ pathname: '/uploads/**' }, { pathname: '/images/**' }, { pathname: '/imgs/**' }],
   },
-  serverExternalPackages: ['@prisma/client', '@prisma/adapter-mariadb', 'mariadb', 'sharp'],
+  serverExternalPackages: ['@prisma/client', '@prisma/adapter-mariadb', 'mariadb', 'sharp', 'baileys', 'qrcode', 'pino'],
   async redirects() {
     return [
       { source: '/men', destination: '/category/men', permanent: true },

@@ -1,4 +1,4 @@
-// Demo catalog for PunjabShop. Used by prisma/seed.mjs (products) and
+// Demo catalog for PunjabShoes. Used by prisma/seed.mjs (products) and
 // scripts/fetch-images.mjs (downloads each product's photos into public/imgs/).
 //
 // photos: 'px:<id>' = Pexels (Pexels License), 'us:<id>' = Unsplash (Unsplash License),
@@ -203,7 +203,7 @@ export const PRODUCTS = [
 
 // Homepage banners. image = [source, local file under public/imgs/banners/]
 export const BANNERS = [
-  { placement: 'hero', badge: 'PunjabShop', title: 'Step Into', highlight: 'Style', subtitle: 'Discover Your Perfect Pair', description: 'Trendy Shoes • Premium Quality • Unbeatable Prices', offer_text: 'Up To', offer_highlight: '50% OFF', button_text: 'Shop Now', button_link: '/shop', photo: 'px:20755674', file: 'hero-sneakers', theme: 'light', sort: 1 },
+  { placement: 'hero', badge: 'PunjabShoes', title: 'Step Into', highlight: 'Style', subtitle: 'Discover Your Perfect Pair', description: 'Trendy Shoes • Premium Quality • Unbeatable Prices', offer_text: 'Up To', offer_highlight: '50% OFF', button_text: 'Shop Now', button_link: '/shop', photo: 'px:20755674', file: 'hero-sneakers', theme: 'light', sort: 1 },
   { placement: 'hero', badge: 'For Her', title: 'Elegant', highlight: 'Heels', subtitle: 'Made for Every Occasion', description: 'Stilettos • Pumps • Party Wear', offer_text: 'Starting', offer_highlight: 'Rs. 3,299', button_text: 'Shop Heels', button_link: '/category/women-heels', photo: 'px:27204280', file: 'hero-heels', theme: 'light', sort: 2 },
   { placement: 'hero', badge: 'Formal Edit', title: 'Crafted in', highlight: 'Leather', subtitle: 'Classic Shoes for Every Occasion', description: 'Oxfords • Brogues • Loafers', offer_text: 'Save', offer_highlight: '20% OFF', button_text: 'Shop Formal', button_link: '/category/men-formal-shoes', photo: 'px:15557049', file: 'hero-formal', theme: 'light', sort: 3 },
   { placement: 'promo', title: 'Flat', highlight: '50% OFF', subtitle: 'On Selected Shoes', button_text: 'Shop Sale', button_link: '/sale', photo: 'px:23491456', file: 'promo-sale', theme: 'dark', sort: 1 },
